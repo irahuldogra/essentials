@@ -6,18 +6,18 @@ import (
 	"net/http"
 )
 
-const PORT = "80"
+const port = "80"
 
 type Config struct{}
 
 func main() {
 	app := Config{}
 
-	log.Printf("Starting broker service on port %s\n", PORT)
+	log.Printf("Starting broker service on port %s\n", port)
 
 	//define http server
 	serve := &http.Server{
-		Addr:    fmt.Sprintf(":%s", PORT),
+		Addr:    fmt.Sprintf(":%s", port),
 		Handler: app.routes(),
 	}
 
