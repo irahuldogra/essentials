@@ -2,15 +2,7 @@ package main
 
 import (
 	"net/http"
-
-	"github.com/goccy/go-json"
 )
-
-type Response struct {
-	Error   bool   `json:"error"`
-	Message string `json:"message"`
-	Data    any    `json:"data,omitempty"`
-}
 
 func (app *Config) Broker(w http.ResponseWriter, r *http.Request) {
 	payload := Response{
@@ -18,9 +10,6 @@ func (app *Config) Broker(w http.ResponseWriter, r *http.Request) {
 		Message: "Hit the broker",
 	}
 
-	out, _ := json.MarshalIndent(payload, "", "\t")
+	_ = app.writeJSON(w, http.StatusOK, payload)
 
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusAccepted)
-	w.Write(out)
 }

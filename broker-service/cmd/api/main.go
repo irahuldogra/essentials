@@ -15,13 +15,13 @@ func main() {
 
 	log.Printf("Starting broker service on port %s\n", port)
 
-	//define http server
+	// * define http server
 	serve := &http.Server{
 		Addr:    fmt.Sprintf(":%s", port),
 		Handler: app.routes(),
 	}
 
-	// start server
+	// * start server
 	err := serve.ListenAndServe()
 	if err != nil {
 		log.Panic(err)
