@@ -6,12 +6,11 @@ import (
 	"net/http"
 )
 
-var requestPayload struct {
-	Email    string `json:"email"`
-	Password string `json:"password"`
-}
-
 func (app *Config) Authenticate(w http.ResponseWriter, r *http.Request) {
+	var requestPayload struct {
+		Email    string `json:"email"`
+		Password string `json:"password"`
+	}
 
 	err := app.readJSON(w, r, &requestPayload)
 	if err != nil {
