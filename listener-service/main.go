@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	event "listener/events"
+	event "listener/event"
 	"log"
 	"math"
 	"os"
