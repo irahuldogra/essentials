@@ -27,14 +27,14 @@ func main() {
 
 	log.Println("Starting authentication service")
 
-	// * connect to DB
+	//* connect to DB
 	conn := connectDB()
 
 	if conn == nil {
 		log.Panic("Can't connect to Postgres!")
 	}
 
-	// * set up config
+	//* set up config
 	app := Config{
 		DB:     conn,
 		Models: data.New(conn),
@@ -45,7 +45,7 @@ func main() {
 		Handler: app.routes(),
 	}
 
-	// * start server
+	//* start server
 	err := serve.ListenAndServe()
 	if err != nil {
 		log.Panic(err)

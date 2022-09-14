@@ -11,7 +11,7 @@ import (
 func (app *Config) routes() http.Handler {
 	r := chi.NewRouter()
 
-	// * specify who is allowed to connect
+	//* specify who is allowed to connect
 	r.Use(cors.Handler(cors.Options{
 		AllowedOrigins:   []string{"https://*", "http://*"},
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},

@@ -21,7 +21,7 @@ func (app *Config) Authenticate(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// * validate the user against the database
+	//* validate the user against the database
 	user, err := app.Models.User.GetByEmail(requestPayload.Email)
 	if err != nil {
 		app.errorJSON(w, errors.New("invalid credentials"), http.StatusBadRequest)
@@ -34,7 +34,7 @@ func (app *Config) Authenticate(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// * log authentication
+	//* log authentication
 	err = app.logRequest("authentication", fmt.Sprintf("%s logged in", user.Email))
 	if err != nil {
 		app.errorJSON(w, err)

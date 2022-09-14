@@ -37,7 +37,7 @@ type Models struct {
 	User User
 }
 
-// * User is the structure which holds one user from the database.
+//* User is the structure which holds one user from the database.
 
 type User struct {
 	ID        int       `json:"id"`
@@ -50,7 +50,7 @@ type User struct {
 	UpdatedAt time.Time `json:"updated_at"`
 }
 
-// * GetAll returns a slice of all users, sorted by last name
+//* GetAll returns a slice of all users, sorted by last name
 
 func (u *User) GetAll() ([]*User, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), dbTimeout)
@@ -90,7 +90,7 @@ func (u *User) GetAll() ([]*User, error) {
 	return users, nil
 }
 
-// * GetByEmail returns one user by email
+//* GetByEmail returns one user by email
 
 func (u *User) GetByEmail(email string) (*User, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), dbTimeout)
@@ -119,7 +119,7 @@ func (u *User) GetByEmail(email string) (*User, error) {
 	return &user, nil
 }
 
-// * GetOne returns one user by id
+//* GetOne returns one user by id
 
 func (u *User) GetOne(id int) (*User, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), dbTimeout)
@@ -148,8 +148,8 @@ func (u *User) GetOne(id int) (*User, error) {
 	return &user, nil
 }
 
-// * Update updates one user in the database, using the information
-// * stored in the receiver u
+//* Update updates one user in the database, using the information
+//* stored in the receiver u
 
 func (u *User) Update() error {
 	ctx, cancel := context.WithTimeout(context.Background(), dbTimeout)
@@ -180,7 +180,7 @@ func (u *User) Update() error {
 	return nil
 }
 
-// * Delete deletes one user from the database, by User.ID
+//* Delete deletes one user from the database, by User.ID
 
 func (u *User) Delete() error {
 	ctx, cancel := context.WithTimeout(context.Background(), dbTimeout)
@@ -196,7 +196,7 @@ func (u *User) Delete() error {
 	return nil
 }
 
-// * DeleteByID deletes one user from the database, by ID
+//* DeleteByID deletes one user from the database, by ID
 
 func (u *User) DeleteByID(id int) error {
 	ctx, cancel := context.WithTimeout(context.Background(), dbTimeout)
@@ -212,7 +212,7 @@ func (u *User) DeleteByID(id int) error {
 	return nil
 }
 
-// * Insert inserts a new user into the database, and returns the ID of the newly inserted row
+//* Insert inserts a new user into the database, and returns the ID of the newly inserted row
 
 func (u *User) Insert(user User) (int, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), dbTimeout)
@@ -244,7 +244,7 @@ func (u *User) Insert(user User) (int, error) {
 	return newID, nil
 }
 
-// * ResetPassword is the method we will use to change a user's password.
+//* ResetPassword is the method we will use to change a user's password.
 
 func (u *User) ResetPassword(password string) error {
 	ctx, cancel := context.WithTimeout(context.Background(), dbTimeout)
