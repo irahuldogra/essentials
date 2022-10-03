@@ -1,4 +1,4 @@
-# Go-micro
+# Eassentials
 
 This repository focuses on developing essentials micro services suchs as Broker, Logger, Authenticator, and Listener
 
