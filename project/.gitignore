@@ -1,2 +1,8 @@
 /db-data
 /caddy_data
+/caddy_config
+
+caddy.production.dockerfile
+swarm.production.yml
+
+Caddyfile.production
